@@ -2,8 +2,10 @@ import type { Metadata } from 'next'
 
 import { METADATA_TITLE } from '@/lib/constants'
 
+import { NEXT_AUTH_META_TITLE } from './_components/next-auth.constants'
+
 export const metadata: Metadata = {
-  title: `AUTH - ${METADATA_TITLE}`,
+  title: `${NEXT_AUTH_META_TITLE} - ${METADATA_TITLE}`,
 }
 
 export default function Layout({ children }: React.PropsWithChildren) {
