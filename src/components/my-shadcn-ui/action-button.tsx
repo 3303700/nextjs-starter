@@ -11,10 +11,12 @@ export default function ActionButton({
   children,
   disabled,
   action,
+  useBounce = true,
   enabled = true,
   ...props
 }: {
   action: () => Promise<unknown>
+  useBounce?: boolean
   enabled?: boolean
 } & ButtonProps) {
   const [pending, setPending] = useState(false)
@@ -22,7 +24,7 @@ export default function ActionButton({
   return (
     <Button
       disabled={pending || !enabled || disabled}
-      className={cn(pending && 'animate-bounce', className)}
+      className={cn(pending && useBounce && 'animate-bounce', className)}
       onClick={async () => {
         setPending(true)
 
